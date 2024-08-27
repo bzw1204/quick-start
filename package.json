@@ -1,0 +1,77 @@
+{
+  "name": "electron-template",
+  "version": "1.0.0",
+  "description": "An Electron application with Vue and TypeScript",
+  "author": "example.com",
+  "homepage": "https://electron-vite.org",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint . --fix",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "vue-tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "npm run typecheck && electron-vite build",
+    "preinstall": "npx simple-git-hooks",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^3.0.0",
+    "@electron-toolkit/utils": "^3.0.0",
+    "@electron-uikit/core": "^1.0.0",
+    "@electron-uikit/titlebar": "^1.1.0",
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.23.0",
+    "@electron-toolkit/tsconfig": "^1.0.1",
+    "@types/node": "^20.14.8",
+    "@unocss/eslint-plugin": "^0.61.5",
+    "@unocss/preset-icons": "^0.61.5",
+    "@unocss/preset-rem-to-px": "^0.61.5",
+    "@unocss/preset-tagify": "^0.61.5",
+    "@unocss/transformer-directives": "^0.61.5",
+    "@unocss/transformer-variant-group": "^0.61.5",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "electron": "^31.0.2",
+    "electron-builder": "^24.13.3",
+    "electron-vite": "^2.3.0",
+    "eslint": "^9.7.0",
+    "eslint-plugin-format": "^0.1.2",
+    "prettier": "^3.3.3",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.5.2",
+    "unocss": "^0.61.5",
+    "unplugin-auto-import": "^0.18.2",
+    "unplugin-vue-components": "^0.27.3",
+    "vite": "^5.4.0",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
+    "vue": "^3.4.37",
+    "vue-router": "^4.4.3",
+    "vue-tsc": "^2.0.22"
+  },
+  "resolutions": {
+    "eslint": "^9.7.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run typecheck",
+    "pre-push": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*": [
+      "git add ."
+    ],
+    "*.{ts,tsx,vue}": [
+      "eslint --fix"
+    ],
+    "*.{css,less}": [
+      "prettier --write"
+    ]
+  }
+}
