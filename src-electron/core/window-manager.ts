@@ -11,8 +11,8 @@ export async function createWindow() {
     frame: false, // 去掉默认的标题栏
     titleBarStyle: 'hidden', // 设置标题栏样式
     autoHideMenuBar: true,
-    transparent: true,
-    backgroundColor: '#00000000',
+    // transparent: true,
+    // backgroundColor: '#00000000',
     alwaysOnTop: false,
     icon: join(__dirname, '../../resources/icon.png'),
     webPreferences: {
@@ -25,7 +25,7 @@ export async function createWindow() {
       spellcheck: false,
       enableWebSQL: false,
       disableHtmlFullscreenWindowResize: true,
-      devTools: false
+      devTools: true
     }
   })
 

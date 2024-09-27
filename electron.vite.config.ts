@@ -5,19 +5,21 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
   main: {
     build: {
       rollupOptions: {
         input: {
-          index: resolve(__dirname, 'electron/main/index.ts')
+          index: resolve(__dirname, 'src-electron/index.ts')
         }
       }
     },
     resolve: {
       alias: {
-        '@': resolve('electron/')
+        '@': resolve('src-electron/')
       }
     },
     plugins: [externalizeDepsPlugin()]
@@ -26,16 +28,16 @@ export default defineConfig({
     build: {
       rollupOptions: {
         input: {
-          index: resolve(__dirname, 'electron/preload/index.ts')
-        },
-        output: {
-          // format: 'es'
+          index: resolve(__dirname, 'src-electron/preload/index.ts')
         }
       }
     },
     plugins: [externalizeDepsPlugin()]
   },
   renderer: {
+    server: {
+      port: 888
+    },
     root: '.',
     build: {
       rollupOptions: {
@@ -46,8 +48,7 @@ export default defineConfig({
     },
     resolve: {
       alias: {
-        '@': resolve('src/'),
-        '@electron': resolve('electron/')
+        '@': resolve('src/')
       }
     },
     plugins: [
@@ -58,6 +59,7 @@ export default defineConfig({
           }
         }
       }),
+      VueJsx(),
       UnoCSS(),
       VueSetupExtend(),
       AutoImport({
@@ -66,7 +68,7 @@ export default defineConfig({
           'vue-router',
           'pinia',
           {
-            'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar']
+            'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar', 'useModal']
           }
         ],
         dirs: ['src/store'],
@@ -77,7 +79,7 @@ export default defineConfig({
         dts: 'src/types/components.d.ts',
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         resolvers: [
-          // NaiveUiResolver(),
+          NaiveUiResolver()
           // XNaiveUIResolver()
         ]
       })

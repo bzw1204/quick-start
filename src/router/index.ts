@@ -12,14 +12,6 @@ const router = createRouter({
         {
           path: 'dashboard',
           component: () => import('@/views/index.vue')
-        },
-        {
-          path: 'terminal',
-          component: () => import('@/components/xterminal/index.vue')
-        },
-        {
-          path: 'editor',
-          component: () => import('@/components/editor/MxEditor.vue')
         }
       ]
     }

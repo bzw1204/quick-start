@@ -1,6 +1,7 @@
 import { platform } from 'node:os'
 import { electronAPI } from '@electron-toolkit/preload'
 import { contextBridge } from 'electron'
+import type { IApi, IRendererStore } from 'preload'
 import { domReady, useLoading } from './loading'
 
 const { appendLoading, removeLoading } = useLoading()
@@ -14,18 +15,11 @@ const api: IApi = {
   }
 }
 const store: IRendererStore = {
-  get: async(key, defaultValue?: any) => {
-    return await electronAPI.ipcRenderer.invoke('store:get', key, defaultValue)
-  },
-  set: async(key, value) => {
-    return await electronAPI.ipcRenderer.invoke('store:set', key, value)
-  },
-  remove: async(key) => {
-    return await electronAPI.ipcRenderer.invoke('store:remove', key)
-  },
-  reset: async(key, value) => {
-    return await electronAPI.ipcRenderer.invoke('store:reset', key, value)
-  }
+  get: (key, defaultValue?: any) => window.ipc.invoke('store:get', key, defaultValue),
+  set: (key, value) => window.ipc.invoke('store:set', key, value),
+  remove: key => window.ipc.invoke('store:remove', key),
+  reset: (key, value) => window.ipc.invoke('store:reset', key, value)
+
 }
 if (process.contextIsolated) {
   try {

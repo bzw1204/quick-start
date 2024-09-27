@@ -4,4 +4,15 @@ interface Window {
   $message?: import('naive-ui').MessageProviderInst
   $notification?: import('naive-ui').NotificationProviderInst
   $modal?: import('naive-ui').ModalProviderInst
+  $loading: {
+    start: () => void
+    end: () => void
+  }
+  $spin?: {
+    start: () => void
+    end: () => void
+  }
+  ipc: import('@electron-toolkit/preload').IpcRenderer
+  $store: import('preload').IRendererStore
+  $api: import('preload').IApi
 }

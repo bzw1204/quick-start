@@ -2,19 +2,23 @@
   "extends": "@electron-toolkit/tsconfig/tsconfig.web.json",
   "compilerOptions": {
     "composite": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
     "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
-      ],
-      "@electron/*": ["electron/*"]
+      ]
     },
     "types": [
-    ]
+      "naive-ui/volar"
+    ],
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
   "include": [
-    "electron/types/*.d.ts",
     "electron/share/*",
+    "types/*.d.ts",
     "src/**/*"
   ]
 }

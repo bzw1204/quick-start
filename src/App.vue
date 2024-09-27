@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { GlobalThemeOverrides } from 'naive-ui'
 import { darkTheme } from 'naive-ui'
-import { NaiveProviderContent } from '@/utils/naive-tools'
-// import '@/utils/background'
+import { NaiveProviderContent } from '@/components'
 
 const themeOverrides: GlobalThemeOverrides = {
   common: {
@@ -43,19 +42,8 @@ const themeOverrides: GlobalThemeOverrides = {
 
 <template>
   <n-config-provider :theme-overrides="themeOverrides" :theme="darkTheme" class="select-none">
-    <n-loading-bar-provider>
-      <n-config-provider>
-        <n-dialog-provider>
-          <n-notification-provider :max="1">
-            <n-message-provider :max="1">
-              <router-view />
-              <NaiveProviderContent :show="false">
-                <!-- <router-view /> -->
-              </NaiveProviderContent>
-            </n-message-provider>
-          </n-notification-provider>
-        </n-dialog-provider>
-      </n-config-provider>
-    </n-loading-bar-provider>
+    <NaiveProviderContent>
+      <router-view />
+    </NaiveProviderContent>
   </n-config-provider>
 </template>

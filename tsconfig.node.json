@@ -5,15 +5,17 @@
     "baseUrl": ".",
     "moduleResolution": "Bundler",
     "paths": {
-      "@/*": ["electron/*"]
+      "@/*": [
+        "src-electron/*"
+      ]
     },
     "types": [
       "electron-vite/node"
     ]
   },
   "include": [
-    "electron.vite.config.*",
-    "electron/**/*",
-    "src/types/*.d.ts"
+    "src-electron/**/*",
+    "types/*.d.ts",
+    "electron.vite.config.ts"
   ]
 }

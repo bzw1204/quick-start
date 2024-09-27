@@ -3,7 +3,7 @@ import { electronApp, optimizer } from '@electron-toolkit/utils'
 import { useUIKit } from '@electron-uikit/core/main'
 import { registerTitleBarListener } from '@electron-uikit/titlebar'
 import { BrowserWindow, app } from 'electron'
-import { createWindow } from '@/main/core/window-manager'
+import { createWindow } from '@/core/window-manager'
 
 // 关闭安全提示
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'

@@ -1,6 +1,4 @@
-import type { ElectronAPI, IpcRenderer } from '@electron-toolkit/preload'
-
-declare global {
+declare module 'preload' {
   interface IRendererStore {
     get: <K extends keyof XSchema>(key: K) => Promise<Required<XSchema>[K]>
     get: <K extends keyof XSchema>(key: K, defaultValue: Required<XSchema>[K],) => Promise<Required<XSchema>[K]>
@@ -14,15 +12,5 @@ declare global {
     platform: {
       isMacOS: boolean
     }
-  }
-  interface Window {
-    electron: ElectronAPI
-    ipc: IpcRenderer
-    $loading: {
-      start: () => void
-      end: () => void
-    }
-    $store: IRendererStore
-    $api: IApi
   }
 }
