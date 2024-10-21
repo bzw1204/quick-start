@@ -65,5 +65,6 @@
     "titlebar",
     "windowtitle"
   ],
-  "Codegeex.GenerationPreference": "line by line"
+  "Codegeex.GenerationPreference": "line by line",
+  "Codegeex.RepoIndex": true
 }
