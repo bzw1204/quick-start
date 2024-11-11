@@ -1,9 +1,12 @@
+import { fork } from 'node:child_process'
 import { release } from 'node:os'
+import { fileURLToPath } from 'node:url'
+import { createWindow } from '@/core/window-manager'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import { useUIKit } from '@electron-uikit/core/main'
 import { registerTitleBarListener } from '@electron-uikit/titlebar'
-import { BrowserWindow, app } from 'electron'
-import { createWindow } from '@/core/window-manager'
+import { app, BrowserWindow } from 'electron'
+import logger from 'electron-log'
 
 // 关闭安全提示
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
@@ -14,7 +17,8 @@ app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors') // 允许跨�
 if (release().startsWith('6.1')) {
   app.disableHardwareAcceleration()
 }
-
+logger.transports.file.format = '{y}-{m}-{d} {h}:{i}:{s} [{level}]{scope} {text}'
+logger.transports.file.fileName = 'quick-main.log'
 app.whenReady().then(async() => {
   electronApp.setAppUserModelId('com.electron')
   app.on('browser-window-created', (_, window) => {
@@ -23,7 +27,8 @@ app.whenReady().then(async() => {
   useUIKit()
   registerTitleBarListener()
   await createWindow()
-
+  logger.info('The app started.')
+  fork(fileURLToPath(new URL('test.js', import.meta.url)))
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()

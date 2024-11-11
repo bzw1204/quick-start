@@ -1,19 +1,23 @@
 import { resolve } from 'node:path'
-import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import vue from '@vitejs/plugin-vue'
+import VueJsx from '@vitejs/plugin-vue-jsx'
+import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
-import VueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
   main: {
     build: {
       rollupOptions: {
         input: {
-          index: resolve(__dirname, 'src-electron/index.ts')
+          index: resolve(__dirname, 'src-electron/index.ts'),
+          test: resolve(__dirname, 'src-electron/worker/test.ts')
+        },
+        output: {
+          format: 'es'
         }
       }
     },

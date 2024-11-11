@@ -23,6 +23,9 @@ importers:
       '@electron-uikit/titlebar':
         specifier: ^1.1.0
         version: 1.1.0(@electron-uikit/core@1.0.0(electron@31.7.1))(electron@31.7.1)
+      electron-log:
+        specifier: ^5.2.0
+        version: 5.2.0
       electron-updater:
         specifier: ^6.3.9
         version: 6.3.9
@@ -1927,6 +1930,10 @@ packages:
     resolution: {integrity: sha512-poRgAtUHHOnlzZnc9PK4nzG53xh74wj2Jy7jkTrqZ0MWPoHGh1M2+C//hGeYdA+4K8w4yiVCNYoLXF7ySj2Wig==}
     engines: {node: '>=14.0.0'}
     hasBin: true
+
+  electron-log@5.2.0:
+    resolution: {integrity: sha512-VjLkvaLmbP3AOGOh5Fob9M8bFU0mmeSAb5G2EoTBx+kQLf2XA/0byzjsVGBTHhikbT+m1AB27NEQUv9wX9nM8w==}
+    engines: {node: '>= 14'}
 
   electron-publish@24.13.1:
     resolution: {integrity: sha512-2ZgdEqJ8e9D17Hwp5LEq5mLQPjqU3lv/IALvgp+4W8VeNhryfGhYEQC/PgDPMrnWUp+l60Ou5SJLsu+k4mhQ8A==}
@@ -6087,6 +6094,8 @@ snapshots:
       - electron-builder-squirrel-windows
       - supports-color
 
+  electron-log@5.2.0: {}
+
   electron-publish@24.13.1:
     dependencies:
       '@types/fs-extra': 9.0.13
@@ -6563,8 +6572,7 @@ snapshots:
 
   extsprintf@1.3.0: {}
 
-  extsprintf@1.4.1:
-    optional: true
+  extsprintf@1.4.1: {}
 
   fast-deep-equal@3.1.3: {}
 
@@ -8503,7 +8511,7 @@ snapshots:
     dependencies:
       assert-plus: 1.0.0
       core-util-is: 1.0.2
-      extsprintf: 1.3.0
+      extsprintf: 1.4.1
 
   verror@1.10.1:
     dependencies:

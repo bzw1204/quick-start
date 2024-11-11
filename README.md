@@ -1,34 +1,26 @@
 # electron-template
 
-An Electron application with Vue and TypeScript
+<p align="center">
+  <!-- Add your logo here -->
+  <img src="path-to-your-logo.png" alt="Project Logo" width="200"/>
+</p>
 
-## Recommended IDE Setup
+An Electron application built with Vue and TypeScript, providing a robust foundation for desktop applications.
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)
+## ✨ Features
 
-## Project Setup
+- 🚀 Electron + Vue 3 + TypeScript
+- 📦 Hot Reload
+- 🎨 Vue 3 Component Support
+- 🔧 TypeScript Support
+- 🛠 ESLint + Prettier Integration
 
-### Install
+## 🔧 Technology Stack
 
-```bash
-$ pnpm install
-```
+- Electron
+- Vue 3
+- TypeScript
+- Vite
+- Pnpm
 
-### Development
-
-```bash
-$ pnpm dev
-```
-
-### Build
-
-```bash
-# For windows
-$ pnpm build:win
-
-# For macOS
-$ pnpm build:mac
-
-# For Linux
-$ pnpm build:linux
-```
+## 📁 Project Structure
