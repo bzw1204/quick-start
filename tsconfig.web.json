@@ -17,7 +17,6 @@
     "noEmit": true
   },
   "include": [
-    "electron/share/*",
     "@types/*.d.ts",
     "src/**/*"
   ]

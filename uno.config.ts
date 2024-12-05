@@ -1,6 +1,6 @@
-import { defineConfig, presetAttributify, presetIcons, presetUno } from 'unocss'
-import presetRemToPx from '@unocss/preset-rem-to-px'
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
+import presetRemToPx from '@unocss/preset-rem-to-px'
+import { defineConfig, presetAttributify, presetIcons, presetUno } from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -10,11 +10,19 @@ export default defineConfig({
     presetIcons({
       collections: {
         local: FileSystemIconLoader('src/assets/icons')
+      },
+      customizations: {
+        iconCustomizer(collection, icon, props) {
+          if (collection === 'local') {
+            props.width = '1em'
+            props.height = '1em'
+          }
+        }
       }
     })
   ],
   rules: [
-    [/^wh-(\d+)$/, ([,d]) => ({ width: `${d}px`, height: `${d}px` })],
+    [/^wh-(\d+)$/, ([, d]) => ({ width: `${d}px`, height: `${d}px` })],
     ['drag', { '-webkit-app-region': 'drag' }],
     ['no-drag', { '-webkit-app-region': 'no-drag' }]
   ],

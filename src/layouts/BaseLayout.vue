@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import MxMenus from './components/MxMenus.vue'
 import MxHeader from '@/layouts/components/MxHeader.vue'
+import MxMenus from './components/MxMenus.vue'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import MxHeader from '@/layouts/components/MxHeader.vue'
       <MxHeader />
     </n-layout-header>
     <n-layout :native-scrollbar="false" has-sider>
-      <n-layout-sider :native-scrollbar="false" class="h-content" content-class="px-10">
+      <n-layout-sider :native-scrollbar="false" show-trigger="bar" class="h-content" content-class="px-10">
         <MxMenus />
       </n-layout-sider>
       <n-layout-content class="h-content">
