@@ -19,7 +19,8 @@ export default defineConfig({
         output: {
           format: 'es'
         }
-      }
+      },
+      minify: 'terser'
     },
     resolve: {
       alias: {
@@ -34,7 +35,8 @@ export default defineConfig({
         input: {
           index: resolve(__dirname, 'src-electron/preload/index.ts')
         }
-      }
+      },
+      minify: 'terser'
     },
     plugins: [externalizeDepsPlugin()]
   },
@@ -48,7 +50,8 @@ export default defineConfig({
         input: {
           index: resolve(__dirname, 'index.html')
         }
-      }
+      },
+      minify: 'terser'
     },
     resolve: {
       alias: {
