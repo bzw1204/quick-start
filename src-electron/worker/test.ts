@@ -1,3 +1,4 @@
-import logger from 'electron-log'
+// import logger from 'electron-log'
 
-logger.info('I,m a worker')
+// logger.transports.file.fileName = 'quick-worker.log'
+// logger.info('I,m a worker')

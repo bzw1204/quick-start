@@ -2,10 +2,8 @@ import { join } from 'node:path'
 import { is } from '@electron-toolkit/utils'
 import { attachTitleBarToWindow } from '@electron-uikit/titlebar'
 import { BrowserWindow, shell } from 'electron'
-import Logger from 'electron-log'
 
 export async function createWindow() {
-  Logger.info('hello world')
   const mainWindow = new BrowserWindow({
     width: 900,
     height: 670,

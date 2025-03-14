@@ -15,9 +15,6 @@ export default defineConfig({
         input: {
           index: resolve(__dirname, 'src-electron/index.ts'),
           test: resolve(__dirname, 'src-electron/worker/test.ts')
-        },
-        output: {
-          format: 'es'
         }
       },
       minify: 'terser'
@@ -27,7 +24,9 @@ export default defineConfig({
         '@': resolve('src-electron/')
       }
     },
-    plugins: [externalizeDepsPlugin()]
+    // https://github.com/alex8088/electron-vite/issues/401
+    // 后续修复后移除
+    plugins: [externalizeDepsPlugin({ exclude: ['electron-log'] })]
   },
   preload: {
     build: {

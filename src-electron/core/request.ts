@@ -1,8 +1,6 @@
 import { session } from 'electron'
-import logger from 'electron-log'
 
 export function registerRequest() {
-  logger.info('The app request inited.')
   const defaultSession = session.defaultSession
   const cookieRegex = / secure; HttpOnly/
   defaultSession.webRequest.onHeadersReceived({ urls: ['https://*/auth/login'] }, (details, callback) => {

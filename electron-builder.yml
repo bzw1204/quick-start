@@ -19,6 +19,8 @@ nsis:
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
+beforePack: build/before-pack-clean.mjs
+# afterPack: build/after-pack-clean.mjs
 mac:
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:
