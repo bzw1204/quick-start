@@ -12,9 +12,8 @@ function emptyDirRecursive(dir) {
   }
 }
 
-const _default = async function(context) {
+export default function(context) {
   const outDir = context.outDir
   // 清理当前目录下所有文件
   emptyDirRecursive(outDir)
 }
-export { _default as default }
