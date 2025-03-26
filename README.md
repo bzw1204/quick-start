@@ -1,4 +1,3 @@
-
 # electron-template
 
 <p align="center">
@@ -95,6 +94,7 @@ electron-template/
 ### 渲染进程
 
 渲染进程基于 Vue 3 构建，集成了:
+
 - 组件自动导入
 - NaiveUI 组件库
 - UnoCSS 原子化 CSS
@@ -103,6 +103,7 @@ electron-template/
 ### 构建系统
 
 使用 electron-vite 和 electron-builder 构建和打包应用：
+
 - 支持 Windows (NSIS 安装程序)
 - 支持 macOS (DMG)
 - 支持 Linux (AppImage、Snap、Deb)
@@ -112,6 +113,7 @@ electron-template/
 ### electron-builder.yml
 
 负责应用打包配置，包括:
+
 - 应用ID和产品名称
 - 构建资源目录
 - 打包格式和目标平台
@@ -121,6 +123,7 @@ electron-template/
 ### .npmrc
 
 配置了国内镜像源，加速依赖安装:
+
 ```
 electron_mirror=https://npmmirror.com/mirrors/electron/
 electron_builder_binaries_mirror=https://npmmirror.com/mirrors/electron-builder-binaries/
@@ -129,6 +132,7 @@ electron_builder_binaries_mirror=https://npmmirror.com/mirrors/electron-builder-
 ## 🧩 编码规范
 
 项目使用 ESLint 和 Prettier 进行代码风格管理，集成了 git hooks 来确保代码质量:
+
 - 提交前进行类型检查
 - 推送前进行代码格式化和 lint 检查
 
@@ -145,11 +149,3 @@ electron_builder_binaries_mirror=https://npmmirror.com/mirrors/electron-builder-
 欢迎提交 Issues 和 Pull Requests！
 
 ---
-
-```json:package.json
-{
-  "description": "一个基于 Electron + Vue 3 + TypeScript 的现代化桌面应用程序模板，集成了 Vite 和 NaiveUI，提供了完整的开发和构建流程，适用于快速构建高性能跨平台桌面应用"
-}
-```
-
-以上是优化后的 description 内容，它更加全面地描述了项目的技术栈和价值。
