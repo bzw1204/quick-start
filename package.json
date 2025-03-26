@@ -4,7 +4,12 @@
   "version": "1.2.1",
   "description": "🚀 现代化的Electron应用开发模板，集成Vue 3 + TypeScript + Vite构建系统。为快速开发跨平台桌面应用提供完整解决方案。",
   "author": "374856393@qq.com",
-  "homepage": "https://electron-vite.org",
+  "license": "MIT",
+  "homepage": "https://github.com/bzw1204/quick-start",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bzw1204/quick-start.git"
+  },
   "keywords": [
     "electron",
     "vue",
