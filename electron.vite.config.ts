@@ -79,10 +79,10 @@ export default defineConfig({
         ],
         dirs: ['src/store'],
         include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/],
-        dts: 'src/types/auto-imports.d.ts'
+        dts: 'src/@types/auto-imports.d.ts'
       }),
       Components({
-        dts: 'src/types/components.d.ts',
+        dts: 'src/@types/components.d.ts',
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         resolvers: [
           NaiveUiResolver()

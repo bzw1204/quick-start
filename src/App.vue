@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { GlobalThemeOverrides } from 'naive-ui'
-import { NaiveProviderContent } from '@/components'
 import { darkTheme } from 'naive-ui'
+import { NaiveProviderContent } from '@/components'
 
 const themeOverrides: GlobalThemeOverrides = {
   common: {

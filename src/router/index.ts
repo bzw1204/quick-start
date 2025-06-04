@@ -1,5 +1,5 @@
-import { BaseLayout } from '@/layouts'
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { BaseLayout } from '@/layouts'
 
 const router = createRouter({
   history: createWebHashHistory(),
