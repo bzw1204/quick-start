@@ -41,7 +41,7 @@ export default defineConfig({
   },
   renderer: {
     server: {
-      port: 888
+      port: 8888
     },
     root: '.',
     build: {

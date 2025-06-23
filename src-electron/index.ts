@@ -13,6 +13,8 @@ process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
 // 忽略证书相关错误
 app.commandLine.appendSwitch('ignore-certificate-errors')
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors') // 允许跨域
+app.commandLine.appendSwitch('enable-features', 'NetworkService,NetworkServiceInProcess')
+app.commandLine.appendSwitch('experimentalNetworkInspection')
 // win7下禁用gpu加速
 if (release().startsWith('6.1')) {
   app.disableHardwareAcceleration()
